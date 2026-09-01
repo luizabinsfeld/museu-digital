@@ -1,60 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-br">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Museu Digital</title>
-     <style>
-         header{
-             background-color: #3f5f3f;
-             color: #fdfdc0;
-             text-align: center;
-             max-width: 800px;
-             margin: 0 auto;
-             padding: 16px;
-         }
-         main{
-             background-color: #FFFFB4;
-             color: #0b140b;
-              max-width: 800px;
-             margin: 0 auto;
-             padding: 16px;
-             display: flex;
-         }
-     </style>
- </head>
- <body>
-  <header>
-      <h1>Museu Digital Paranaense</h1>
-     <p>Nesta página, apresentaremos informações sobre os Campos Gerais e Centro Oriental do Paraná.</p>
-  </header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Museu Digital Paranaense</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Museu Digital Paranaense</h1>
+        <p>Informações sobre os Campos Gerais e o Centro Oriental do Paraná</p>
+    </header>
+
     <main>
-<article>
-<img src="unnamed.png"
-alt="imagemcamposgerais"/>
+        <article class="card">
+            <img src="unnamed.png" alt="Paisagem dos Campos Gerais" class="card-img">
+            
+            <div class="card-content">
+                <h2>Sobre os Campos Gerais e Centro Oriental</h2>
+                <p>A região dos Campos Gerais é uma área geográfica e socioeconômica localizada no centro-leste do estado do Paraná, marcada por paisagens de campos nativos, relevo de planalto e grande relevância histórica e econômica. A imagem e o áudio apresentam informações sobre imigrações, migrações e sua cultura.</p>
+                
+                <!-- Tag correta para reprodução de áudio -->
+                <audio controls class="audio-player">
+                    <source src="lv_0_20260819211542.mp3" type="audio/mpeg">
+                    Seu navegador não suporta o elemento de áudio.
+                </audio>
 
-<div>
-<h2>Sobre os Campos Gerais e Centro Oriental</h2>
-<p>Região dos Campos Gerais é uma área geográfica e socioeconômica localizada no centro-leste do estado do Paraná, marcada por paisagens de campos nativos, relevo de planalto e grande relevância histórica e econômica. A imagem e áudio mostra algumas informações sobre imigrações, migrações e sua cultura.</p>
-<img src="lv_0_20260819211542.mp3"/>
-<button>❤️<span>0</span></button>
-<button>👍<span>0</span></button>
-<p class="artigo-autor">Por: luiza Binsfeld</p>
-</div>
-</article>
+                <div class="interacoes">
+                    <button class="btn-reacao" id="btnCoracao">❤️ <span id="qtdCoracao">0</span></button>
+                    <button class="btn-reacao" id="btnJoinha">👍 <span id="qtdJoinha">0</span></button>
+                    <button class="btn-principal" id="btnCurtir">Curtir (0)</button>
+                </div>
 
-<button id="btnCurtir">Curtir (0)</button>
+                <p class="artigo-autor">Por: Luiza Binsfeld</p>
+            </div>
+        </article>
     </main>
 
-    <script>
-        let contadorCurtidas = 0;
-        const botaoCurtir = document.getElementById('btnCurtir');
-
-        botaoCurtir.addEventListener('click', function() {
-            contadorCurtidas++;
-            botaoCurtir.textContent = `Curtir (${contadorCurtidas})`;
-        });
-    </script>
-</main>
+    <script src="script.js"></script>
 </body>
 </html>
