@@ -10,6 +10,8 @@
     <header>
         <h1>Museu Digital Paranaense</h1>
         <p>Informações sobre os Campos Gerais e o Centro Oriental do Paraná</p>
+        <!-- Botão adicionado para alternar o tema -->
+        <button id="btnTema" class="btn-tema">Alternar Tema</button>
     </header>
 
     <main>
@@ -20,6 +22,11 @@
                 <h2>Sobre os Campos Gerais e Centro Oriental</h2>
                 <p>A região dos Campos Gerais é uma área geográfica e socioeconômica localizada no centro-leste do estado do Paraná, marcada por paisagens de campos nativos, relevo de planalto e grande relevância histórica e econômica. A imagem e o áudio apresentam informações sobre imigrações, migrações e sua cultura.</p>
                 
+                <video width="640" height="360" controls>
+                    <source src="1000071570.mp4" type="video/mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
+
                 <div class="interacoes">
                     <button class="btn-reacao" id="btnCoracao">❤️ <span id="qtdCoracao">0</span></button>
                     <button class="btn-reacao" id="btnJoinha">👍 <span id="qtdJoinha">0</span></button>
@@ -30,6 +37,7 @@
             </div>
         </article>
     </main>
+
     <script src="script.js"></script>
 </body>
 </html>

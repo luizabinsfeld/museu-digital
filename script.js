@@ -1,3 +1,9 @@
+// Controle do Tema Claro/Escuro
+const btnTema = document.getElementById('btnTema');
+btnTema.addEventListener('click', function() {
+    document.body.classList.toggle('tema-escuro');
+});
+
 // Controle do botão principal de curtir
 let contadorCurtidas = 0;
 const botaoCurtir = document.getElementById('btnCurtir');

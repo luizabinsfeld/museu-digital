@@ -1,78 +1,180 @@
-/* Reset global de margens para preencher toda a tela */
+/* Definição das variáveis de cores (Padrão/Claro com as suas cores originais) */
+:root {
+    --cor-fundo-pagina: #2b4c3f;
+    --cor-fundo-header: #1c3329;
+    --cor-texto-header: #f3e9d2;
+    --cor-borda: #c88b3b;
+    --cor-fundo-card: #fdfbf7;
+    --cor-texto-titulo: #1c3329;
+    --cor-texto-paragrafo: #333333;
+    --cor-fundo-btn: #e8e0d0;
+    --cor-texto-btn: #1c3329;
+    --cor-hover-btn: #d8ccb6;
+    --cor-fundo-btn-principal: #1c3329;
+    --cor-texto-btn-principal: #f3e9d2;
+    --cor-hover-btn-principal: #2b4c3f;
+    --cor-texto-autor: #666666;
+}
+
+/* Redefinição das variáveis para o Modo Escuro */
+.tema-escuro {
+    --cor-fundo-pagina: #15261f; 
+    --cor-fundo-header: #0d1a15;
+    --cor-texto-header: #fdfbf7;
+    --cor-borda: #c88b3b;
+    --cor-fundo-card: #1c3329; 
+    --cor-texto-titulo: #f3e9d2;
+    --cor-texto-paragrafo: #e8e0d0;
+    --cor-fundo-btn: #2b4c3f;
+    --cor-texto-btn: #fdfbf7;
+    --cor-hover-btn: #15261f;
+    --cor-fundo-btn-principal: #fdfbf7;
+    --cor-texto-btn-principal: #1c3329;
+    --cor-hover-btn-principal: #d8ccb6;
+    --cor-texto-autor: #a0a0a0;
+}
+
+/* Remove as margens padrão do navegador e preenche a tela inteira */
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 body {
+    margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #2b4c3f; /* Fundo verde em 100% da tela */
-    color: #1a1a1a;
+    background-color: var(--cor-fundo-pagina);
+    color: var(--cor-texto-paragrafo);
     min-height: 100vh;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transição suave copiada do modelo */
 }
 
-/* Cabeçalho de ponta a ponta na tela */
+/* Cabeçalho */
 header {
-    width: 100%;
-    background-color: #1c3329;
-    color: #f3e9d2;
+    background-color: var(--cor-fundo-header);
+    color: var(--cor-texto-header);
     text-align: center;
-    padding: 24px 16px;
-    border-bottom: 4px solid #c88b3b;
+    padding: 30px 20px;
+    border-bottom: 4px solid var(--cor-borda);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 header h1 {
-    margin-bottom: 8px;
+    margin: 0 0 8px 0;
 }
 
-/* Bloco principal centralizado */
-main {
-    max-width: 1000px; /* Largura expandida para permitir a leitura do infográfico */
-    width: 90%;
-    margin: 30px auto;
+header p {
+    margin: 0;
+    font-size: 1rem;
+    opacity: 0.9;
 }
 
-article {
-    background-color: #fdfbf7;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-    padding: 24px;
-}
-
-/* Impede que a imagem gigante vaze da tela */
-article img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto 20px auto;
-    border-radius: 8px;
-}
-
-/* Ajuste do player de áudio */
-audio {
-    width: 100%;
-    margin: 15px 0;
-}
-
-/* Botões de interação */
-button {
-    background-color: #1c3329;
-    color: #f3e9d2;
+/* Botão de Alternar Tema */
+.btn-tema {
+    margin-top: 15px;
+    background-color: var(--cor-borda);
+    color: #1a1a1a;
     border: none;
     padding: 8px 16px;
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
-    margin-right: 8px;
+    transition: filter 0.2s;
 }
 
-button:hover {
-    background-color: #2b4c3f;
+.btn-tema:hover {
+    filter: brightness(0.9);
+}
+
+/* Conteúdo principal */
+main {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background-color: var(--cor-fundo-card);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+/* Imagem reduzida e centralizada */
+.card-img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+.card-content {
+    width: 100%;
+}
+
+.card-content h2 {
+    color: var(--cor-texto-titulo);
+    margin-top: 0;
+    transition: color 0.3s ease;
+}
+
+.card-content p {
+    line-height: 1.6;
+    color: var(--cor-texto-paragrafo);
+    transition: color 0.3s ease;
+}
+
+/* Formatação do player de áudio/vídeo */
+video {
+    width: 100%;
+    margin: 15px 0;
+    border-radius: 8px;
+}
+
+/* Área de botões */
+.interacoes {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin: 20px 0 10px 0;
+    flex-wrap: wrap;
+}
+
+.btn-reacao, .btn-principal {
+    background-color: var(--cor-fundo-btn);
+    border: 1px solid var(--cor-borda);
+    color: var(--cor-texto-btn);
+    padding: 8px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-reacao:hover {
+    background-color: var(--cor-hover-btn);
+}
+
+.btn-principal {
+    background-color: var(--cor-fundo-btn-principal);
+    color: var(--cor-texto-btn-principal);
+    border: none;
+}
+
+.btn-principal:hover {
+    background-color: var(--cor-hover-btn-principal);
 }
 
 .artigo-autor {
     font-style: italic;
-    color: #666666;
+    font-size: 0.85rem;
+    color: var(--cor-texto-autor);
     margin-top: 15px;
+    transition: color 0.3s ease;
 }
